@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="" />
+    <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LoadProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Oxford.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Сommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Bot.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Bot.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Commands.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/LoadProperties.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/Bot.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Model.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Oxford.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/UserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bot.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,15 +30,24 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="package" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1S1CL4iItbxuWxn5XJUGeu5Ai1M" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
@@ -60,11 +88,42 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570721655579</updated>
-      <workItem from="1570721659367" duration="3189000" />
+      <workItem from="1570721659367" duration="3734000" />
+      <workItem from="1570784897289" duration="7724000" />
+      <workItem from="1570827055229" duration="6683000" />
+      <workItem from="1570883917625" duration="9373000" />
+      <workItem from="1570971489274" duration="10968000" />
+      <workItem from="1571086237702" duration="8256000" />
+      <workItem from="1571129557031" duration="22363000" />
+      <workItem from="1571232202149" duration="4816000" />
+      <workItem from="1571333595870" duration="1205000" />
+      <workItem from="1571411414447" duration="4063000" />
+      <workItem from="1571502947935" duration="2795000" />
+      <workItem from="1571520893777" duration="884000" />
+      <workItem from="1572040078408" duration="2078000" />
+      <workItem from="1572178044586" duration="957000" />
+      <workItem from="1572389137268" duration="454000" />
+      <workItem from="1572470735172" duration="1131000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Bot$Bot.ic" NAME="Bot Coverage Results" MODIFIED="1570975591605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
