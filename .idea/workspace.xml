@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LoadProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Oxford.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Сommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Bot.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Bot.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Commands.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/LoadProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/Bot.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Oxford.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/UserRequest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bot.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +86,7 @@
       <workItem from="1572040078408" duration="2078000" />
       <workItem from="1572178044586" duration="957000" />
       <workItem from="1572389137268" duration="454000" />
-      <workItem from="1572470735172" duration="1390000" />
+      <workItem from="1572470735172" duration="1667000" />
     </task>
     <servers />
   </component>
