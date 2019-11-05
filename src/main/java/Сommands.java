@@ -1,14 +1,17 @@
 enum Commands {
 
-    PRONUNCIATION("/pronunciations"),
-    DEFINITION("/definitions"),
-    EXAMPLES( "/examples");
+    PRONUNCIATION("/pronunciations", new Pronunciation()),
+    DEFINITION("/definitions", new Definition()),
+    EXAMPLES( "/examples", new Examples());
 
     
     private String description;
+    private Command command;
 
-    Commands(String description) {
+    Commands(String description, Command command) {
         this.description = description;
+        this.command = command;
+
     }
 
     public String getDescription() {
@@ -16,5 +19,7 @@ enum Commands {
     }
 
 
-
+    public Command getCommand() {
+        return command;
+    }
 }

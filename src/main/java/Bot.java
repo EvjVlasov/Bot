@@ -8,8 +8,13 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Bot extends TelegramLongPollingBot {
     private UserRequest userRequest = new UserRequest();
+
+ //   private ExecutorService executorService = Executors.newCachedThreadPool();
 
     public Bot() {
     }
@@ -20,35 +25,38 @@ public class Bot extends TelegramLongPollingBot {
 
         try {
             telegramBotsApi.registerBot(new Bot());
-        } catch (TelegramApiRequestException var3) {
-            var3.printStackTrace();
+        } catch (TelegramApiRequestException e) {
+            e.printStackTrace();
         }
 
     }
 
     public void onUpdateReceived(Update update) {
-        Message message = update.getMessage();
-        if (message != null && message.hasText()) {
-            if (message.getText().substring(0, 1).equals("/")) {
-                Commands[] var3 = Commands.values();
-                int var4 = var3.length;
+        if (update.hasMessage() && update.getMessage().hasText()) {
+        final Message message = update.getMessage();
+            if (message.isCommand()) {
+                Commands[] cmdArray = Commands.values();
 
-                for(int var5 = 0; var5 < var4; ++var5) {
-                    Commands command = var3[var5];
-                    if (command.getDescription().equals(message.getText()) && this.userRequest.getMessage().getText().isEmpty()) {
-                        this.sendAnswer(message, "First enter the word.");
+                for (Commands command : cmdArray) {
+                    if (command.getDescription().equals(message.getText()) && userRequest.getMessage().getText().isEmpty()) {
+                     //   executorService.submit(new Runnable() {
+                      //      @Override
+                      //      public void run() {
+                                sendAnswer(message, "First enter the word.");
+                        //    }
+                      //  });
                         break;
                     }
 
-                    if (command.getDescription().equals(message.getText()) && !this.userRequest.getMessage().getText().isEmpty()) {
+                    if (command.getDescription().equals(message.getText()) && !userRequest.getMessage().getText().isEmpty()) {
                         Model model = new Model();
-                        this.sendAnswer(this.userRequest.getMessage(), Oxford.getOxford(this.userRequest.getMessage().getText(), model, command));
+                        sendAnswer(userRequest.getMessage(), Oxford.getOxford(userRequest.getMessage().getText(), model, command));
                         break;
                     }
                 }
             } else {
-                this.userRequest.setMessage(message);
-                this.sendAnswer(message, "Now enter the command.");
+                userRequest.setMessage(message);
+                sendAnswer(message, "Now enter the command.");
             }
         }
 
@@ -73,9 +81,9 @@ public class Bot extends TelegramLongPollingBot {
             sendMessage.setText(text);
 
             try {
-                this.execute(sendMessage);
-            } catch (TelegramApiException var6) {
-                var6.printStackTrace();
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
             }
         } else {
             SendAudio sendAudio = new SendAudio();
@@ -85,9 +93,9 @@ public class Bot extends TelegramLongPollingBot {
             sendAudio.setAudio(text.substring(text.indexOf("\n") + 1));
 
             try {
-                this.execute(sendAudio);
-            } catch (TelegramApiException var5) {
-                var5.printStackTrace();
+                execute(sendAudio);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
             }
         }
 

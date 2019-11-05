@@ -1,8 +1,3 @@
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -43,28 +38,12 @@ public class Oxford {
             BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
 
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line+ "\n");
+                stringBuilder.append(line).append("\n");
             }
 
-            JSONObject object1 = new JSONObject(stringBuilder.toString());
-            JSONArray results = object1.getJSONArray("results");
-
-            String result = null;
-            switch (command.getDescription().substring(1)) {
-                case "pronunciations":
-                    result = Pronunciations(results, model);
-                    break;
-                case "definitions":
-                    result = Definitions(results, model);
-                    break;
-                case "examples":
-                    result = Examples(results, model);
-                    break;
-            }
-
-            return result;
+            return command.getCommand().Execute(stringBuilder.toString(), model);
 
         }
         catch (Exception e) {
@@ -73,97 +52,4 @@ public class Oxford {
         }
     }
 
-    private static String Definitions(JSONArray results, Model model) {
-
-        try {
-
-            StringBuilder defBuilder = new StringBuilder();
-            defBuilder.append("Definitions:" + "\n"+ "\n");
-            for (int i = 0; i < results.length() ; i++) {
-                JSONArray lexicalEntries= results.getJSONObject(i).getJSONArray("lexicalEntries");
-                for (int y = 0; y < lexicalEntries.length() ; y++) {
-                    JSONArray entries= lexicalEntries.getJSONObject(y).getJSONArray("entries");
-                    for (int n = 0; n < entries.length() ; n++) {
-                        try {
-                            JSONArray senses = entries.getJSONObject(n).getJSONArray("senses");
-                            for (int k = 0; k < senses.length(); k++) {
-                                JSONArray defArray = senses.getJSONObject(k).getJSONArray("definitions");
-                                if (!defArray.isEmpty()) {
-                                    defBuilder.append("- " + defArray.get(0).toString() + "\n" + "\n");
-                                }
-                            }
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-
-            model.setDefinitions(defBuilder.toString());
-
-            return model.getDefinitions();
-
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return e.toString();
-        }
-    }
-
-    private static String Pronunciations(JSONArray results, Model model) {
-
-        try {
-
-            for (int i = 0; i < results.length() ; i++) {
-                JSONArray lexicalEntries = results.getJSONObject(i).getJSONArray("lexicalEntries");
-                for (int y = 0; y < lexicalEntries.length() ; y++) {
-                    JSONArray pronunciations= lexicalEntries.getJSONObject(y).getJSONArray("pronunciations");
-                    for (int k = 0; k < pronunciations.length() ; k++) {
-                        model.setPronunciations(pronunciations.getJSONObject(k).getString("audioFile").replaceAll("_", "%5f"));
-                        model.setTranscription(pronunciations.getJSONObject(k).getString("phoneticSpelling"));
-                    }
-                }
-            }
-
-            return "Transcription: ["+ model.getTranscription() + "]"+"\n" + model.getPronunciations();
-
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return e.toString();
-        }
-    }
-
-    private static String Examples(JSONArray results, Model model) {
-
-        try {
-
-            StringBuilder exBuilder = new StringBuilder();
-            exBuilder.append("Examples:" + "\n"+ "\n");
-            for (int i = 0; i < results.length() ; i++) {
-                JSONArray lexicalEntries= results.getJSONObject(i).getJSONArray("lexicalEntries");
-                for (int y = 0; y < lexicalEntries.length() ; y++) {
-                    JSONArray entries= lexicalEntries.getJSONObject(y).getJSONArray("entries");
-                    for (int n = 0; n < entries.length() ; n++) {
-                        JSONArray senses = entries.getJSONObject(n).getJSONArray("senses");
-                        for (int k = 0; k < senses.length() ; k++) {
-                            JSONArray examples = senses.getJSONObject(k).getJSONArray("examples");
-                            for (int m = 0; m < examples.length() ; m++) {
-                                exBuilder.append("- "+ examples.getJSONObject(m).getString("text") + "\n"+"\n");
-                            }
-                        }
-                    }
-                }
-            }
-
-            model.setExamples(exBuilder.toString());
-
-            return model.getExamples();
-
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return e.toString();
-        }
-    }
 }

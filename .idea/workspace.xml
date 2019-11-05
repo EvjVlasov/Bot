@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Oxford.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oxford.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Сommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Сommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Bot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Oxford.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Oxford.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserRequest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +32,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1S1CL4iItbxuWxn5XJUGeu5Ai1M" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaEETest" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
@@ -86,7 +103,8 @@
       <workItem from="1572040078408" duration="2078000" />
       <workItem from="1572178044586" duration="957000" />
       <workItem from="1572389137268" duration="454000" />
-      <workItem from="1572470735172" duration="1667000" />
+      <workItem from="1572470735172" duration="31394000" />
+      <workItem from="1572949088812" duration="7742000" />
     </task>
     <servers />
   </component>
