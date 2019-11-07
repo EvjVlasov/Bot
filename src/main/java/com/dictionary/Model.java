@@ -1,7 +1,9 @@
+package com.dictionary;
+
 public class Model {
         private String definitions;
         private String examples;
-        private String pronunciations;
+        private String pronunciation;
         private String transcription;
 
         public String getDefinitions() {
@@ -20,12 +22,12 @@ public class Model {
                 this.examples = examples;
         }
 
-        public String getPronunciations() {
-                return pronunciations;
+        public String getPronunciation() {
+                return pronunciation;
         }
 
-        public void setPronunciations(String pronunciations) {
-                this.pronunciations = pronunciations;
+        public void setPronunciation(String pronunciation) {
+                this.pronunciation = pronunciation;
         }
 
         public String getTranscription() {

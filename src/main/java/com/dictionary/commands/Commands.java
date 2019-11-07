@@ -1,10 +1,12 @@
-enum Commands {
+package com.dictionary.commands;
+
+public enum Commands {
 
     PRONUNCIATION("/pronunciations", new Pronunciation()),
     DEFINITION("/definitions", new Definition()),
-    EXAMPLES( "/examples", new Examples());
+    EXAMPLES("/examples", new Examples());
 
-    
+
     private String description;
     private Command command;
 

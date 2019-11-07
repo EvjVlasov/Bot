@@ -1,6 +1,8 @@
+package com.dictionary.commands;
+
+import com.dictionary.Model;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 
 public class Pronunciation extends Command {
@@ -10,9 +12,9 @@ public class Pronunciation extends Command {
         ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode root = mapper.readTree(json);
-            model.setPronunciations(root.findValue("audioFile").textValue());
+            model.setPronunciation(root.findValue("audioFile").textValue());
             model.setTranscription(root.findValue("phoneticSpelling").textValue());
-            return "Transcription: ["+ model.getTranscription() + "]"+"\n" + model.getPronunciations();
+            return "Transcription: ["+ model.getTranscription() + "]"+"\n" + model.getPronunciation();
         } catch (IOException e) {
             e.printStackTrace();
             return "Try another word.";
