@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="Bot 1.2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/LoadProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/Oxford.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Commands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Definition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Examples.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Pronunciation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Command.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Definition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Examples.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LoadProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Oxford.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pronunciation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Сommands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LoadProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Oxford.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +99,7 @@
       <workItem from="1572389137268" duration="454000" />
       <workItem from="1572470735172" duration="31394000" />
       <workItem from="1572949088812" duration="26351000" />
-      <workItem from="1573129577049" duration="4673000" />
+      <workItem from="1573129577049" duration="8201000" />
     </task>
     <servers />
   </component>
