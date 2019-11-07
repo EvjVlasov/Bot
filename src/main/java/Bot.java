@@ -1,5 +1,5 @@
+import org.apache.shiro.session.Session;
 import org.telegram.telegrambots.ApiContextInitializer;
-import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendAudio;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -7,17 +7,12 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
+import org.telegram.telegrambots.session.TelegramLongPollingSessionBot;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Optional;
 
-public class Bot extends TelegramLongPollingBot {
-    private UserRequest userRequest = new UserRequest();
 
- //   private ExecutorService executorService = Executors.newCachedThreadPool();
-
-    public Bot() {
-    }
+public class Bot extends TelegramLongPollingSessionBot {
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
@@ -31,42 +26,42 @@ public class Bot extends TelegramLongPollingBot {
 
     }
 
-    public void onUpdateReceived(Update update) {
+    @Override
+    public void onUpdateReceived(Update update, Optional<Session> optional) {
         if (update.hasMessage() && update.getMessage().hasText()) {
-        final Message message = update.getMessage();
+            Message message = update.getMessage();
+            Session session = optional.orElse(null);
             if (message.isCommand()) {
                 Commands[] cmdArray = Commands.values();
 
                 for (Commands command : cmdArray) {
-                    if (command.getDescription().equals(message.getText()) && userRequest.getMessage().getText().isEmpty()) {
-                     //   executorService.submit(new Runnable() {
-                      //      @Override
-                      //      public void run() {
-                                sendAnswer(message, "First enter the word.");
-                        //    }
-                      //  });
+                    assert session != null;
+                    if (command.getDescription().equals(message.getText()) && session.getAttribute("message") == null) {
+                        sendAnswer(message, "First enter the word.");
                         break;
                     }
 
-                    if (command.getDescription().equals(message.getText()) && !userRequest.getMessage().getText().isEmpty()) {
+                    if (command.getDescription().equals(message.getText()) && session.getAttribute("message") != null) {
                         Model model = new Model();
-                        sendAnswer(userRequest.getMessage(), Oxford.getOxford(userRequest.getMessage().getText(), model, command));
+                        sendAnswer((Message) session.getAttribute("message"), Oxford.getOxford(((Message) session.getAttribute("message")).getText(), model, command));
                         break;
                     }
                 }
             } else {
-                userRequest.setMessage(message);
+                assert session != null;
+                session.setAttribute("message", message);
                 sendAnswer(message, "Now enter the command.");
             }
         }
-
     }
 
+    @Override
     public String getBotUsername() {
         LoadProperties loadProperties = new LoadProperties();
         return loadProperties.getProp().getProperty("TelegramBotName");
     }
 
+    @Override
     public String getBotToken() {
         LoadProperties loadProperties = new LoadProperties();
         return loadProperties.getProp().getProperty("TelegramBotToken");
@@ -100,4 +95,5 @@ public class Bot extends TelegramLongPollingBot {
         }
 
     }
+
 }

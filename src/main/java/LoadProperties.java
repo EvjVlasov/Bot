@@ -8,7 +8,7 @@ public class LoadProperties {
         try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/Bot.properties")) {
             prop.load(fileInputStream);
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

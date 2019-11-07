@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class Pronunciation extends Command {
-    final static String Name = "/pronunciations";
 
     @Override
     public String Execute(String json, Model model) {
@@ -16,13 +15,9 @@ public class Pronunciation extends Command {
             return "Transcription: ["+ model.getTranscription() + "]"+"\n" + model.getPronunciations();
         } catch (IOException e) {
             e.printStackTrace();
-            return e.toString();
+            return "Try another word.";
         }
 
     }
 
-    @Override
-    public boolean Contains(Commands command) {
-        return false;
-    }
 }

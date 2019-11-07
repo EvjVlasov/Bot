@@ -4,13 +4,12 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 
-
 public class Oxford {
 
 
-    public static String getOxford(String  message, Model model, Commands command) {
+    public static String getOxford(String message, Model model, Commands command) {
         String resultURL = dictionaryEntries(message, command);
-        return  doInBackground(resultURL, model, command);
+        return executeCommand(resultURL, model, command);
     }
 
     private static String dictionaryEntries(String message, Commands command) {
@@ -23,7 +22,7 @@ public class Oxford {
     }
 
 
-    private static String doInBackground(String resultURL, Model model, Commands command) {
+    private static String executeCommand(String resultURL, Model model, Commands command) {
         LoadProperties loadProperties = new LoadProperties();
         final String app_id = loadProperties.getProp().getProperty("OxfordAppId");
         final String app_key = loadProperties.getProp().getProperty("OxfordAppKey");
@@ -31,10 +30,9 @@ public class Oxford {
         try {
             URL url = new URL(resultURL);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
-            urlConnection.setRequestProperty("app_id",app_id);
-            urlConnection.setRequestProperty("app_key",app_key);
+            urlConnection.setRequestProperty("app_id", app_id);
+            urlConnection.setRequestProperty("app_key", app_key);
 
-            // read the output from the server
             BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -45,10 +43,9 @@ public class Oxford {
 
             return command.getCommand().Execute(stringBuilder.toString(), model);
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            return e.toString();
+            return "Try another word.";
         }
     }
 

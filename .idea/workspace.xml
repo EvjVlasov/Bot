@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="">
+    <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="Bot 1.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Definition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Definition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Examples.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Examples.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LoadProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Oxford.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oxford.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Сommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Сommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Bot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pronunciation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pronunciation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoadProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoadProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Oxford.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Oxford.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserRequest.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,9 +51,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaEETest" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunDashboard">
@@ -104,7 +109,8 @@
       <workItem from="1572178044586" duration="957000" />
       <workItem from="1572389137268" duration="454000" />
       <workItem from="1572470735172" duration="31394000" />
-      <workItem from="1572949088812" duration="7742000" />
+      <workItem from="1572949088812" duration="26351000" />
+      <workItem from="1573129577049" duration="1269000" />
     </task>
     <servers />
   </component>
@@ -123,6 +129,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Bot 1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bot 1.2" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="update.getCallbackQuery()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bot$Bot.ic" NAME="Bot Coverage Results" MODIFIED="1570975591605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

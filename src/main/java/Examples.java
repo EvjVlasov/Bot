@@ -6,8 +6,6 @@ import java.util.List;
 
 public class Examples extends Command {
 
-    final static String Name = "/examples";
-
     @Override
     public String Execute(String json, Model model) {
 
@@ -19,10 +17,10 @@ public class Examples extends Command {
             JsonNode root = mapper.readTree(json);
             List exArray = root.findValues("examples");
 
-            for (int i = 0; i < exArray.size(); i++) {
-                List textArray = ((ArrayNode) exArray.get(i)).findValues("text");
-                for (int y = 0; y < textArray.size(); y++) {
-                    exBuilder.append("- " + textArray.get(y) + "\n" + "\n");
+            for (Object o : exArray) {
+                List textArray = ((ArrayNode) o).findValues("text");
+                for (Object value : textArray) {
+                    exBuilder.append(value).append("\n").append("\n");
                 }
             }
             model.setExamples(exBuilder.toString());
@@ -30,12 +28,8 @@ public class Examples extends Command {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return e.toString();
+            return "Try another word.";
         }
     }
 
-    @Override
-    public boolean Contains(Commands command) {
-        return false;
-    }
 }
