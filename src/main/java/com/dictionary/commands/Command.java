@@ -1,9 +1,27 @@
 package com.dictionary.commands;
 
-import com.dictionary.Model;
+public enum Command {
 
-public abstract class Command {
+    PRONUNCIATION("/pronunciations", new Pronunciation()),
+    DEFINITION("/definitions", new Definition()),
+    EXAMPLES("/examples", new Examples());
 
-    public abstract String Execute(String json, Model model);
 
+    private String description;
+    private BotCommand command;
+
+    Command(String description, BotCommand command) {
+        this.description = description;
+        this.command = command;
+
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    public BotCommand getCommand() {
+        return command;
+    }
 }

@@ -1,15 +1,19 @@
 package com.dictionary.commands;
 
-import com.dictionary.Model;
+import com.dictionary.ModelAnswer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.List;
 
-public class Definition extends Command {
+public class Definition implements BotCommand {
+    private static final Logger log = LogManager.getLogger(Definition.class);
 
     @Override
-    public String Execute(String json, Model model) {
+    public String execute(String json, ModelAnswer model) {
 
         StringBuilder defBuilder = new StringBuilder();
         defBuilder.append("Definitions:" + "\n" + "\n");
@@ -24,8 +28,8 @@ public class Definition extends Command {
             model.setDefinitions(defBuilder.toString());
             return model.getDefinitions();
         } catch (IOException e) {
-            e.printStackTrace();
-            return "Try another word.";
+            log.error("Exception: ", e);
+            return WRONG_WORD;
         }
 
     }

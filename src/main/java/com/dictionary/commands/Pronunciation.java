@@ -1,23 +1,27 @@
 package com.dictionary.commands;
 
-import com.dictionary.Model;
+import com.dictionary.ModelAnswer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 
-public class Pronunciation extends Command {
+public class Pronunciation implements BotCommand {
+    private static final Logger log = LogManager.getLogger(Pronunciation.class);
 
     @Override
-    public String Execute(String json, Model model) {
+    public String execute(String json, ModelAnswer model) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode root = mapper.readTree(json);
             model.setPronunciation(root.findValue("audioFile").textValue());
             model.setTranscription(root.findValue("phoneticSpelling").textValue());
-            return "Transcription: ["+ model.getTranscription() + "]"+"\n" + model.getPronunciation();
+            return "Transcription: [" + model.getTranscription() + "]" + "\n" + model.getPronunciation();
         } catch (IOException e) {
-            e.printStackTrace();
-            return "Try another word.";
+            log.error("Exception: ", e);
+            return WRONG_WORD;
         }
 
     }

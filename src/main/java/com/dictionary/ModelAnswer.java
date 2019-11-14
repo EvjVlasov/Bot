@@ -1,6 +1,6 @@
 package com.dictionary;
 
-public class Model {
+public class ModelAnswer {
         private String definitions;
         private String examples;
         private String pronunciation;

@@ -1,16 +1,19 @@
 package com.dictionary.commands;
 
-import com.dictionary.Model;
+import com.dictionary.ModelAnswer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-public class Examples extends Command {
+public class Examples implements BotCommand {
+    private static final Logger log = LogManager.getLogger(Examples.class);
 
     @Override
-    public String Execute(String json, Model model) {
+    public String execute(String json, ModelAnswer model) {
 
         StringBuilder exBuilder = new StringBuilder();
         exBuilder.append("Examples:" + "\n" + "\n");
@@ -30,8 +33,8 @@ public class Examples extends Command {
             return model.getExamples();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return "Try another word.";
+            log.error("Exception: ", e);
+            return WRONG_WORD;
         }
     }
 

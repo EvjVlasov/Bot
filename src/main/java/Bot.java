@@ -1,7 +1,9 @@
-import com.dictionary.LoadProperties;
-import com.dictionary.Model;
-import com.dictionary.Oxford;
-import com.dictionary.commands.Commands;
+import com.dictionary.PropertiesLoader;
+import com.dictionary.ModelAnswer;
+import com.dictionary.OxfordDictionary;
+import com.dictionary.commands.Command;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -12,10 +14,12 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import org.telegram.telegrambots.session.TelegramLongPollingSessionBot;
+
 import java.util.Optional;
 
 
 public class Bot extends TelegramLongPollingSessionBot {
+    private static final Logger log = LogManager.getLogger(Bot.class);
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
@@ -24,54 +28,64 @@ public class Bot extends TelegramLongPollingSessionBot {
         try {
             telegramBotsApi.registerBot(new Bot());
         } catch (TelegramApiRequestException e) {
-            e.printStackTrace();
+            log.error("Exception: ", e);
         }
 
     }
 
     @Override
     public void onUpdateReceived(Update update, Optional<Session> optional) {
+        final String MESSAGE = "message";
+        final String WORD_REQUEST = "First enter the word.";
+        final String COMMAND_REQUEST = "Now enter the command.";
+
         if (update.hasMessage() && update.getMessage().hasText()) {
             Message message = update.getMessage();
             Session session = optional.orElse(null);
-            if (message.isCommand()) {
-                Commands[] cmdArray = Commands.values();
+            if (session != null) {
+                if (message.isCommand()) {
+                    Command[] cmdArray = Command.values();
 
-                for (Commands command : cmdArray) {
-                    assert session != null;
-                    if (command.getDescription().equals(message.getText()) && session.getAttribute("message") == null) {
-                        sendAnswer(message, "First enter the word.");
-                        break;
-                    }
+                    for (Command command : cmdArray) {
+                        if (command.getDescription().equals(message.getText()) && session.getAttribute(MESSAGE) == null) {
+                            sendAnswer(message, WORD_REQUEST);
+                            break;
+                        }
 
-                    if (command.getDescription().equals(message.getText()) && session.getAttribute("message") != null) {
-                        Model model = new Model();
-                        sendAnswer((Message) session.getAttribute("message"), Oxford.getOxford(((Message) session.getAttribute("message")).getText(), model, command));
-                        break;
+                        if (command.getDescription().equals(message.getText()) && session.getAttribute(MESSAGE) != null) {
+                            ModelAnswer model = new ModelAnswer();
+                            OxfordDictionary oxfordDictionary = new OxfordDictionary();
+                            sendAnswer((Message) session.getAttribute(MESSAGE), oxfordDictionary.getOxfordDictionary(((Message) session.getAttribute(MESSAGE)).getText(), model, command));
+                            break;
+                        }
+
                     }
+                } else {
+                    session.setAttribute(MESSAGE, message);
+                    sendAnswer(message, COMMAND_REQUEST);
                 }
             } else {
-                assert session != null;
-                session.setAttribute("message", message);
-                sendAnswer(message, "Now enter the command.");
+                log.error("Session is null.");
             }
         }
     }
 
     @Override
     public String getBotUsername() {
-        LoadProperties loadProperties = new LoadProperties();
+        PropertiesLoader loadProperties = new PropertiesLoader();
         return loadProperties.getProp().getProperty("TelegramBotName");
     }
 
     @Override
     public String getBotToken() {
-        LoadProperties loadProperties = new LoadProperties();
+        PropertiesLoader loadProperties = new PropertiesLoader();
         return loadProperties.getProp().getProperty("TelegramBotToken");
     }
 
-    public void sendAnswer(Message message, String text) {
-        if (!text.substring(text.length() - 4).equals(".mp3")) {
+    private void sendAnswer(Message message, String text) {
+        final String EXTENSION = ".mp3";
+
+        if (!text.substring(text.length() - 4).equals(EXTENSION)) {
             SendMessage sendMessage = new SendMessage();
             sendMessage.enableMarkdown(true);
             sendMessage.setChatId(message.getChatId().toString());
@@ -81,7 +95,7 @@ public class Bot extends TelegramLongPollingSessionBot {
             try {
                 execute(sendMessage);
             } catch (TelegramApiException e) {
-                e.printStackTrace();
+                log.error("Exception: ", e);
             }
         } else {
             SendAudio sendAudio = new SendAudio();
@@ -93,7 +107,7 @@ public class Bot extends TelegramLongPollingSessionBot {
             try {
                 execute(sendAudio);
             } catch (TelegramApiException e) {
-                e.printStackTrace();
+                log.error("Exception: ", e);
             }
         }
 
