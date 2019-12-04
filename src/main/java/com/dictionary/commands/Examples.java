@@ -4,13 +4,10 @@ import com.dictionary.ModelAnswer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-public class Examples implements BotCommand {
-    private static final Logger log = LogManager.getLogger(Examples.class);
+public class Examples extends AbstractCommand {
 
     @Override
     public String execute(String json, ModelAnswer model) {
@@ -33,7 +30,7 @@ public class Examples implements BotCommand {
             return model.getExamples();
 
         } catch (Exception e) {
-            log.error("Exception: ", e);
+            LOG.error("Exception: ", e);
             return WRONG_WORD;
         }
     }

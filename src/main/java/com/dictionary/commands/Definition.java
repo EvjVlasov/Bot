@@ -3,14 +3,11 @@ package com.dictionary.commands;
 import com.dictionary.ModelAnswer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.List;
 
-public class Definition implements BotCommand {
-    private static final Logger log = LogManager.getLogger(Definition.class);
+public class Definition extends AbstractCommand {
 
     @Override
     public String execute(String json, ModelAnswer model) {
@@ -28,7 +25,7 @@ public class Definition implements BotCommand {
             model.setDefinitions(defBuilder.toString());
             return model.getDefinitions();
         } catch (IOException e) {
-            log.error("Exception: ", e);
+            LOG.error("Exception: ", e);
             return WRONG_WORD;
         }
 

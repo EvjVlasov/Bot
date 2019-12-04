@@ -1,7 +1,7 @@
-import com.dictionary.PropertiesLoader;
+import com.dictionary.util.PropertiesLoader;
 import com.dictionary.ModelAnswer;
 import com.dictionary.OxfordDictionary;
-import com.dictionary.commands.Command;
+import com.dictionary.commands.CommandType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.session.Session;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 
 public class Bot extends TelegramLongPollingSessionBot {
-    private static final Logger log = LogManager.getLogger(Bot.class);
+    private static final Logger LOG = LogManager.getLogger(Bot.class);
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
@@ -28,44 +28,44 @@ public class Bot extends TelegramLongPollingSessionBot {
         try {
             telegramBotsApi.registerBot(new Bot());
         } catch (TelegramApiRequestException e) {
-            log.error("Exception: ", e);
+            LOG.error("Exception: ", e);
         }
 
     }
 
     @Override
     public void onUpdateReceived(Update update, Optional<Session> optional) {
-        final String MESSAGE = "message";
-        final String WORD_REQUEST = "First enter the word.";
-        final String COMMAND_REQUEST = "Now enter the command.";
+        final String messageAttribute = "message";
+        final String wordRequest = "First enter the word.";
+        final String commandRequest = "Now enter the command.";
 
         if (update.hasMessage() && update.getMessage().hasText()) {
             Message message = update.getMessage();
             Session session = optional.orElse(null);
             if (session != null) {
                 if (message.isCommand()) {
-                    Command[] cmdArray = Command.values();
+                    CommandType[] cmdArray = CommandType.values();
 
-                    for (Command command : cmdArray) {
-                        if (command.getDescription().equals(message.getText()) && session.getAttribute(MESSAGE) == null) {
-                            sendAnswer(message, WORD_REQUEST);
+                    for (CommandType command : cmdArray) {
+                        if (command.getDescription().equals(message.getText()) && session.getAttribute(messageAttribute) == null) {
+                            sendAnswer(message, wordRequest);
                             break;
                         }
 
-                        if (command.getDescription().equals(message.getText()) && session.getAttribute(MESSAGE) != null) {
+                        if (command.getDescription().equals(message.getText()) && session.getAttribute(messageAttribute) != null) {
                             ModelAnswer model = new ModelAnswer();
                             OxfordDictionary oxfordDictionary = new OxfordDictionary();
-                            sendAnswer((Message) session.getAttribute(MESSAGE), oxfordDictionary.getOxfordDictionary(((Message) session.getAttribute(MESSAGE)).getText(), model, command));
+                            sendAnswer((Message) session.getAttribute(messageAttribute), oxfordDictionary.getOxfordDictionary(((Message) session.getAttribute(messageAttribute)).getText(), model, command));
                             break;
                         }
 
                     }
                 } else {
-                    session.setAttribute(MESSAGE, message);
-                    sendAnswer(message, COMMAND_REQUEST);
+                    session.setAttribute(messageAttribute, message);
+                    sendAnswer(message, commandRequest);
                 }
             } else {
-                log.error("Session is null.");
+                LOG.error("Session is null.");
             }
         }
     }
@@ -83,9 +83,9 @@ public class Bot extends TelegramLongPollingSessionBot {
     }
 
     private void sendAnswer(Message message, String text) {
-        final String EXTENSION = ".mp3";
+        final String extension = ".mp3";
 
-        if (!text.substring(text.length() - 4).equals(EXTENSION)) {
+        if (!text.substring(text.length() - 4).equals(extension)) {
             SendMessage sendMessage = new SendMessage();
             sendMessage.enableMarkdown(true);
             sendMessage.setChatId(message.getChatId().toString());
@@ -95,7 +95,7 @@ public class Bot extends TelegramLongPollingSessionBot {
             try {
                 execute(sendMessage);
             } catch (TelegramApiException e) {
-                log.error("Exception: ", e);
+                LOG.error("Exception: ", e);
             }
         } else {
             SendAudio sendAudio = new SendAudio();
@@ -107,7 +107,7 @@ public class Bot extends TelegramLongPollingSessionBot {
             try {
                 execute(sendAudio);
             } catch (TelegramApiException e) {
-                log.error("Exception: ", e);
+                LOG.error("Exception: ", e);
             }
         }
 

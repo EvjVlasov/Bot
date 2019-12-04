@@ -1,6 +1,6 @@
 package com.dictionary.commands;
 
-public enum Command {
+public enum CommandType {
 
     PRONUNCIATION("/pronunciations", new Pronunciation()),
     DEFINITION("/definitions", new Definition()),
@@ -8,9 +8,9 @@ public enum Command {
 
 
     private String description;
-    private BotCommand command;
+    private AbstractCommand command;
 
-    Command(String description, BotCommand command) {
+    CommandType(String description, AbstractCommand command) {
         this.description = description;
         this.command = command;
 
@@ -21,7 +21,7 @@ public enum Command {
     }
 
 
-    public BotCommand getCommand() {
+    public AbstractCommand getCommand() {
         return command;
     }
 }

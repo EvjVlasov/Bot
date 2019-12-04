@@ -2,20 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="194567ae-f531-4c89-8bc0-b74986bae04f" name="Default Changelist" comment="Bot 1.2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/BotCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/AbstractCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/CommandType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/util/PropertiesLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/PropertiesLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/ModelAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/Oxford.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/OxfordDictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Commands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/OxfordDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/OxfordDictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/PropertiesLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/BotCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Command.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Definition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Definition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Examples.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Examples.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Pronunciation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dictionary/commands/Pronunciation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Bot.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,7 @@
         <option value="package" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -67,6 +68,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -76,6 +79,12 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.dictionary" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\evjvl\IdeaProjects\Bot\src\main\resources" />
       <recent name="C:\Users\evjvl\IdeaProjects\Bot\src" />
@@ -136,7 +145,9 @@
       <workItem from="1572949088812" duration="26351000" />
       <workItem from="1573129577049" duration="12252000" />
       <workItem from="1573554124144" duration="27656000" />
-      <workItem from="1573717010558" duration="1087000" />
+      <workItem from="1573717010558" duration="2552000" />
+      <workItem from="1574441524388" duration="3620000" />
+      <workItem from="1575469427531" duration="3598000" />
     </task>
     <servers />
   </component>

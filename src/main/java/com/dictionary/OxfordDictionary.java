@@ -1,6 +1,7 @@
 package com.dictionary;
 
-import com.dictionary.commands.Command;
+import com.dictionary.commands.CommandType;
+import com.dictionary.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,31 +13,31 @@ import java.net.URL;
 
 
 public class OxfordDictionary {
-    private final String WRONG_WORD = "Try another word.";
-    private static final Logger log = LogManager.getLogger(OxfordDictionary.class);
+    private static final String WRONG_WORD = "Try another word.";
+    private static final Logger LOG = LogManager.getLogger(OxfordDictionary.class);
 
-    public String getOxfordDictionary(String message, ModelAnswer model, Command command) {
+    public String getOxfordDictionary(String message, ModelAnswer model, CommandType command) {
         String resultURL = dictionaryEntries(message, command);
         try {
             return executeCommand(resultURL, model, command);
         } catch (IOException e) {
-            log.error("Exception: ", e);
+            LOG.error("Exception: ", e);
             return WRONG_WORD;
         }
     }
 
-    private String dictionaryEntries(String message, Command command) {
-        final String BASE_URL = "https://od-api.oxforddictionaries.com:443/api/v2/entries/";
-        final String LANGUAGE = "en-gb";
-        final String FIELDS = command.getDescription().substring(1);
-        final String STRICT_MATCH = "false";
-        final String WORD_ID = message.toLowerCase();
-        return BASE_URL + LANGUAGE + "/" + WORD_ID + "?" + "fields=" + FIELDS + "&strictMatch=" + STRICT_MATCH;
+    private String dictionaryEntries(String message, CommandType command) {
+        final String baseURL = "https://od-api.oxforddictionaries.com:443/api/v2/entries/";
+        final String language = "en-gb";
+        final String fields = command.getDescription().substring(1);
+        final String strictMatch = "false";
+        final String wordId = message.toLowerCase();
+        return baseURL + language + "/" + wordId + "?" + "fields=" + fields + "&strictMatch=" + strictMatch;
 
     }
 
 
-    private String executeCommand(String resultURL, ModelAnswer model, Command command) throws IOException {
+    private String executeCommand(String resultURL, ModelAnswer model, CommandType command) throws IOException {
         PropertiesLoader loadProperties = new PropertiesLoader();
         final String APP_ID = loadProperties.getProp().getProperty("OxfordAppId");
         final String APP_KEY = loadProperties.getProp().getProperty("OxfordAppKey");
@@ -57,7 +58,7 @@ public class OxfordDictionary {
             return command.getCommand().execute(stringBuilder.toString(), model);
 
         } catch (Exception e) {
-            log.error("Exception: ", e);
+            LOG.error("Exception: ", e);
             return WRONG_WORD;
         }
     }
