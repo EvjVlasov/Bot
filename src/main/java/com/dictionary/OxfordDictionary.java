@@ -39,13 +39,13 @@ public class OxfordDictionary {
 
     private String executeCommand(String resultURL, ModelAnswer model, CommandType command) throws IOException {
         PropertiesLoader loadProperties = new PropertiesLoader();
-        final String APP_ID = loadProperties.getProp().getProperty("OxfordAppId");
-        final String APP_KEY = loadProperties.getProp().getProperty("OxfordAppKey");
+        final String appId = loadProperties.getProp().getProperty("OxfordAppId");
+        final String appKey = loadProperties.getProp().getProperty("OxfordAppKey");
 
         URL url = new URL(resultURL);
         HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
-        urlConnection.setRequestProperty("app_id", APP_ID);
-        urlConnection.setRequestProperty("app_key", APP_KEY);
+        urlConnection.setRequestProperty("app_id", appId);
+        urlConnection.setRequestProperty("app_key", appKey);
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
             StringBuilder stringBuilder = new StringBuilder();

@@ -1,0 +1,42 @@
+{
+  "id":"cat",
+  "metadata":{
+    "operation":"retrieve",
+    "provider":"Oxford University Press",
+    "schema":"RetrieveEntry"
+  },
+  "results":[
+    {
+      "id":"cat",
+      "language":"en-gb",
+      "lexicalEntries":[
+        {
+          "entries":[
+            {
+              "homographNumber":"100"
+            }
+          ],
+          "language":"en-gb",
+          "lexicalCategory":{
+            "id":"noun",
+            "text":"Noun"
+          },
+          "pronunciations":[
+            {
+              "audioFile":"http://audio.oxforddictionaries.com/en/mp3/cat_gb_1.mp3",
+              "dialects":[
+                "British English"
+              ],
+              "phoneticNotation":"IPA",
+              "phoneticSpelling":"kat"
+            }
+          ],
+          "text":"cat"
+        }
+      ],
+      "type":"headword",
+      "word":"cat"
+    }
+  ],
+  "word":"cat"
+}

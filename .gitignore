@@ -1,7 +1,8 @@
 #Token File
 src/main/resources/Bot.properties
 
-.idea
 out
 *.iml
 log
+/.idea/
+
